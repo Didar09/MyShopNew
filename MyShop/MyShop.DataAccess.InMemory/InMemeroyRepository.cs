@@ -1,4 +1,5 @@
-﻿using MyShop.Core.Models;
+﻿using MyShop.Core.Contracts;
+using MyShop.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MyShop.DataAccess.InMemory
 {
-    public class InMemeroyRepository<T> where T : BaseEntity 
+    public class InMemeroyRepository<T> : IRepository<T> where T : BaseEntity
     {
         ObjectCache cache = MemoryCache.Default;
         List<T> items;
@@ -68,7 +69,7 @@ namespace MyShop.DataAccess.InMemory
 
             if (tToDelete != null)
             {
-                items.Remove(tToDelete); 
+                items.Remove(tToDelete);
             }
             else
             {
