@@ -3,7 +3,7 @@ namespace MyShop.DataAccess.SQL.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class AddedOrder : DbMigration
+    public partial class AddOrder : DbMigration
     {
         public override void Up()
         {

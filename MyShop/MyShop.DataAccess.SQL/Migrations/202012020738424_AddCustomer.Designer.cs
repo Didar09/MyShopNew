@@ -7,13 +7,13 @@ namespace MyShop.DataAccess.SQL.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class AddedOrder : IMigrationMetadata
+    public sealed partial class AddCustomer : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddedOrder));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddCustomer));
         
         string IMigrationMetadata.Id
         {
-            get { return "202011210625162_AddedOrder"; }
+            get { return "202012020738424_AddCustomer"; }
         }
         
         string IMigrationMetadata.Source
