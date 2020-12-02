@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "Datatable";
+}
+
+<h2>Datatable</h2>
+<table id="orderList">
+    <thead>
+        <tr>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Email</th>
+            <th>Street</th>
+            <th>City</th>
+            <th>State</th>
+            <th>ZipCode</th>
+            <th>OrderStatus</th>
+        </tr>
+    </thead>
+</table>
+<link href="//cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" rel="stylesheet" />
+@section scripts{
+    <script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#orderList").DataTable(
+                {
+                    "ajax": {
+                        "url": "/ViewMyOrder/Datatable",
+                        "type": "GET",
+                        "datatype": "json"
+                    },
+                    "columns": [
+                        { "data": "FirstName" },
+                        { "data": "Lastname" },
+                        { "data": "Email" },
+                        { "data": "Street" },
+                        { "data": "City" },
+                        { "data": "State" },
+                        { "data": "ZipCode" },
+                        { "data":"OrderStatus"}
+
+                    ]
+                })
+        });
+    </script>
+}
