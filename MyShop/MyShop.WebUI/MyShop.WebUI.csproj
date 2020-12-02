@@ -192,6 +192,7 @@
     <Compile Include="Controllers\BasketController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MyOrderController.cs" />
     <Compile Include="Controllers\OrderManagerController.cs" />
     <Compile Include="Controllers\ProductCategoryManagerController.cs" />
     <Compile Include="Controllers\ProductManagerController.cs" />
@@ -277,6 +278,9 @@
     <Content Include="Views\OrderManager\Index.cshtml" />
     <Content Include="Views\OrderManager\UpdateOrder.cshtml" />
     <Content Include="Views\OrderManager\OrderItems.cshtml" />
+    <Content Include="Views\MyOrder\Index.cshtml" />
+    <Content Include="Views\MyOrder\Detail.cshtml" />
+    <Content Include="Views\MyOrder\OrderItems.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

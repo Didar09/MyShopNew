@@ -9,11 +9,11 @@ using System.Web.Mvc;
 namespace MyShop.WebUI.Controllers
 {
     [Authorize]
-    public class ViewMyOrderController : Controller
+    public class MyOrderController : Controller
     {
         IOrderService orderService;
         IRepository<Customer> customers;
-        public ViewMyOrderController(IOrderService OrderService, IRepository<Customer> Customers)
+        public MyOrderController(IOrderService OrderService, IRepository<Customer> Customers)
         {
             this.orderService = OrderService;
             this.customers = Customers;
@@ -21,7 +21,7 @@ namespace MyShop.WebUI.Controllers
         // GET: ViewMyOrder
         public ActionResult Index()
         {
-            List<Order> orders = orderService.GetOrderList().Where(u=>u.Email==User.Identity.Name).ToList();
+            List<Order> orders = orderService.GetOrderList().Where(u => u.Email == User.Identity.Name).ToList();
             return View(orders);
         }
         public ActionResult Detail(string Id)
