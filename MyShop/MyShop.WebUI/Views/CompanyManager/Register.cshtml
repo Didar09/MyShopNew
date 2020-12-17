@@ -1,0 +1,161 @@
+﻿@model MyShop.Core.VIewModels.CompanyViewModel
+
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>Company Register</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.CompanyName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.CompanyName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.CompanyName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ContactPersonName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ContactPersonName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ContactPersonName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ContactPersonMobile, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ContactPersonMobile, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ContactPersonMobile, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ContactPersonEmail, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ContactPersonEmail, new { htmlAttributes = new { @class = "form-control", @onchange = "UserCheck()" } })
+            @Html.ValidationMessageFor(model => model.ContactPersonEmail, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="row">
+        <label class="col-sm-2"></label>
+        <div class="col-sm-10">
+            <p id="Status" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.CompanyAddress, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.CompanyAddress, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.CompanyAddress, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.CompanyPhone, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.CompanyPhone, new { htmlAttributes = new { @class = "form-control", @onchange = "PhoneCheck()" } })
+            @Html.ValidationMessageFor(model => model.CompanyPhone, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="row">
+        <label class="col-sm-2"></label>
+        <div class="col-sm-10">
+            <p id="Status1" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Country, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.Country, ViewBag.Country as SelectList, "--Select Country--", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Country, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.CompanyState, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.CompanyState, ViewBag.CompanyState as SelectList, "--Select State--", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.CompanyState, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ConfirmPassword, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Index", "Index", "Registration") |
+    @Html.ActionLink("Login", "Login")
+</div>
+
+
+<script>
+    function UserCheck() {
+        $("#Status").html("Checking...");
+        $.post("@Url.Action("CheckUsernameAvailability", "CompanyManager")",
+            {
+                userdata: $("#ContactPersonEmail").val()
+            },
+            function (data) {
+            if (data == 0) {
+                $("#Status").html('<font color="Green">Available !. you can take it.</font>');
+                $("#ContactPersonEmail").css("border-color", "Green");
+
+            }
+            else {
+                $("#Status").html('<font color="Red">Email already present .Try Another.</font>');
+                $("#ContactPersonEmail").css("border-color", "Red");
+            }
+        });
+    }
+</script>
+<script>
+    function PhoneCheck() {
+        $("#Status1").html("Checking...");
+        $.post("@Url.Action("CheckPhoneAvailability", "CompanyManager")",
+            {
+                userdata: $("#CompanyPhone").val()
+            },
+            function (data) {
+            if (data == 0) {
+                $("#Status1").html('<font color="Green">Available !. you can take it.</font>');
+                $("#CompanyPhone").css("border-color", "Green");
+
+            }
+            else {
+                $("#Status1").html('<font color="Red">PhoneNo. already present .Try Another.</font>');
+                $("#CompanyPhone").css("border-color", "Red");
+            }
+        });
+    }
+</script>

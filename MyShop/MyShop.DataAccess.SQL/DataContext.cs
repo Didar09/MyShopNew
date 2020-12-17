@@ -22,5 +22,9 @@ namespace MyShop.DataAccess.SQL
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
+        public DbSet<ImagePath> Images { get; set; }
+        public DbSet<Company> Companies { get; set; }
+        public DbSet<Country> Countries { get; set; }
+        public DbSet<States> States { get; set; }
     }
 }

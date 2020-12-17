@@ -1,4 +1,5 @@
 ﻿using MyShop.Core.Models;
+using MyShop.Core.VIewModels;
 using System.Linq;
 
 namespace MyShop.Core.Contracts

@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Welcome</h2>
+
+<div class="col-md-6">
+
+    <div class="list-group">
+        @Html.ActionLink("User Registration", "Register", "Account", null, new { @class = "list-group-item" })
+    </div>
+</div>
+<div class="col-md-6">
+
+    <div class="list-group">
+        @Html.ActionLink("Business Registration", "Register", "CompanyManager", null, new { @class = "list-group-item" })
+    </div>
+</div>
+<div class="col-md-6">
+
+    <div class="list-group">
+        @Html.ActionLink("Business Login", "Login", "CompanyManager", null, new { @class = "list-group-item" })
+    </div>
+</div>
+

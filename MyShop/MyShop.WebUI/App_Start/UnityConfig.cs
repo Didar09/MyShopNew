@@ -55,7 +55,7 @@ namespace MyShop.WebUI
             container.RegisterType<IBasketService, BasketService>();
             container.RegisterType<IRepository<Order>, SQLRepository<Order>>();
             container.RegisterType<IOrderService, OrderService>();
-
+            container.RegisterType<IRepository<ImagePath>, SQLRepository<ImagePath>>();
         }
     }
 }

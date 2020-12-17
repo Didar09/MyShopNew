@@ -190,12 +190,15 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BasketController.cs" />
+    <Compile Include="Controllers\CompaniesListController.cs" />
+    <Compile Include="Controllers\CompanyManagerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MyOrderController.cs" />
     <Compile Include="Controllers\OrderManagerController.cs" />
     <Compile Include="Controllers\ProductCategoryManagerController.cs" />
     <Compile Include="Controllers\ProductManagerController.cs" />
+    <Compile Include="Controllers\RegistrationController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -210,6 +213,11 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\bx_loader.gif" />
+    <Content Include="Content\Images\controls.png" />
+    <Content Include="Content\jquery.bxslider.css" />
+    <Content Include="Content\ProductImages\bx_loader.gif" />
+    <Content Include="Content\ProductImages\controls.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -222,6 +230,8 @@
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.bxslider.js" />
+    <Content Include="Scripts\jquery.bxslider.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -281,10 +291,24 @@
     <Content Include="Views\MyOrder\Index.cshtml" />
     <Content Include="Views\MyOrder\Detail.cshtml" />
     <Content Include="Views\MyOrder\OrderItems.cshtml" />
+    <Content Include="Views\ProductManager\UploadImage.cshtml" />
+    <Content Include="Views\ProductManager\Image.cshtml" />
+    <Content Include="Views\Shared\_SliderPartial.cshtml" />
+    <Content Include="Views\Registration\Index.cshtml" />
+    <Content Include="Views\CompanyManager\Register.cshtml" />
+    <Content Include="Views\CompanyManager\Login.cshtml" />
+    <Content Include="Views\CompanyManager\Dashboard.cshtml" />
+    <Content Include="Views\CompanyManager\Edit.cshtml" />
+    <Content Include="Views\CompanyManager\ChangePassword.cshtml" />
+    <Content Include="Views\CompaniesList\Delete.cshtml" />
+    <Content Include="Views\CompaniesList\Details.cshtml" />
+    <Content Include="Views\CompaniesList\Edit.cshtml" />
+    <Content Include="Views\CompaniesList\Index.cshtml" />
+    <Content Include="Views\CompanyManager\Success.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\ProductImages\" />
+    <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
